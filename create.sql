@@ -1,0 +1,15 @@
+create table additional_fields (id integer not null auto_increment, text varchar(255), title varchar(255), contact_id integer, primary key (id)) engine=InnoDB;
+create table contacts (id integer not null auto_increment, address varchar(255), comment varchar(255), company_name varchar(255), email varchar(255), fax_number varchar(255), first_name varchar(255), label varchar(255), last_name varchar(255), mobile_phone_number varchar(255), phone_number varchar(255), user_id integer, primary key (id)) engine=InnoDB;
+create table users (id integer not null auto_increment, email varchar(255), first_name varchar(255), last_name varchar(255), password varchar(255), username varchar(255), primary key (id)) engine=InnoDB;
+alter table additional_fields add constraint FKi0bf097549k7yecdcax419lwc foreign key (contact_id) references contacts (id);
+alter table contacts add constraint FKna8bddygr3l3kq1imghgcskt8 foreign key (user_id) references users (id);
+create table additional_fields (id integer not null auto_increment, text varchar(255), title varchar(255), contact_id integer, primary key (id)) engine=InnoDB;
+create table contacts (id integer not null auto_increment, address varchar(255), comment varchar(255), company_name varchar(255), email varchar(255), fax_number varchar(255), first_name varchar(255), label varchar(255), last_name varchar(255), mobile_phone_number varchar(255), phone_number varchar(255), user_id integer, primary key (id)) engine=InnoDB;
+create table users (id integer not null auto_increment, email varchar(255), first_name varchar(255), last_name varchar(255), password varchar(255), username varchar(255), primary key (id)) engine=InnoDB;
+alter table additional_fields add constraint FKi0bf097549k7yecdcax419lwc foreign key (contact_id) references contacts (id);
+alter table contacts add constraint FKna8bddygr3l3kq1imghgcskt8 foreign key (user_id) references users (id);
+create table additional_fields (id integer not null auto_increment, text varchar(255), title varchar(255), contact_id integer, primary key (id)) engine=InnoDB;
+create table contacts (id integer not null auto_increment, address varchar(255), comment varchar(255), company_name varchar(255), email varchar(255), fax_number varchar(255), first_name varchar(255), label varchar(255), last_name varchar(255), mobile_phone_number varchar(255), phone_number varchar(255), user_id integer, primary key (id)) engine=InnoDB;
+create table users (id integer not null auto_increment, email varchar(255), first_name varchar(255), last_name varchar(255), password varchar(255), username varchar(255), primary key (id)) engine=InnoDB;
+alter table additional_fields add constraint FKi0bf097549k7yecdcax419lwc foreign key (contact_id) references contacts (id);
+alter table contacts add constraint FKna8bddygr3l3kq1imghgcskt8 foreign key (user_id) references users (id);

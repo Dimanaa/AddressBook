@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Address Book</title>
+
+</head>
+
+<body>
+
+    <header th:insert="navigation :: header"></header>
+
+    <div class="container contact-page-div shadow-lg">
+        <h1 class="text-center" >Edit Page</h1>
+        <div class="col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <form th:action="@{/contacts/edit(id=${contact.id})}" method="POST">
+                    <div class="row gutters">
+
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <h6 class="text-primary">First Name</h6>
+                                <input type="text" class="form-control" name="firstName" th:value="${contact.firstName}" minlength="1" maxlength="45" required>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <h6 class="text-primary">Last Name</h6>
+
+                                <input type="text" class="form-control" name="lastName" th:value="${contact.lastName}" minlength="1" maxlength="45" required>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <h6 class="text-primary">Phone</h6>
+                                <input type="text" class="form-control" name="phoneNumber" th:value="${contact.phoneNumber}" minlength="1" maxlength="45" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <h6 class="text-primary"> Mobile Phone</h6>
+                                <input type="text" class="form-control" name="mobilePhoneNumber" th:value="${contact.mobilePhoneNumber}" minlength="1" maxlength="45" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <h6 class="text-primary">Address</h6>
+                                <input type="text" class="form-control" name="address" th:value="${contact.address}" minlength="1" maxlength="125" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <h6 class="text-primary">Company</h6>
+                                <input type="text" class="form-control" name="companyName" th:value="${contact.companyName}" minlength="1" maxlength="45" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <h6 class="text-primary">Email</h6>
+                                <input type="text" class="form-control" name="email" th:value="${contact.email}" minlength="1" maxlength="45" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <h6 class="text-primary">Fax</h6>
+                                <input type="text" class="form-control" name="faxNumber" th:value="${contact.faxNumber}" minlength="1" maxlength="45" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12 ">
+                            <div class="form-group">
+                                <h6 class="text-primary">Comment</h6>
+                                <input type="text" class="form-control" name="comment"  th:value="${contact.comment}" maxlength="255">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                    <h6 class="text-primary">Label</h6>
+
+                                <select class="custom-select" name="label">
+                                    <option value="WHITE" class="" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).WHITE}">white</option>
+                                    <option value="BLUE" class="bg-primary text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).BLUE}">blue</option>
+                                    <option value="RED" class="bg-danger text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).RED}">red</option>
+                                    <option value="YELLOW" class="bg-warning text-dark" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).YELLOW}">yellow</option>
+                                    <option value="GREEN" class="bg-success text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).GREEN}">green</option>
+                                    <option value="GREY" class="bg-secondary text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).GREY}">grey</option>
+                                    <option value="BLACK" class="bg-dark text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).BLACK}">black</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12" th:each="additionalField : ${additionalFields}">
+                            <div class="form-group">
+                                <label><h6 class="text-primary">Field name:</h6></label>
+                                <input type="text" class="form-control" name="title" th:value="${additionalField.title}">
+                                <label><h6 class="text-primary mt-2">Field text:</h6></label>
+                                <input type="text" class="form-control" name="text" th:value="${additionalField.text}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+
+                        <input type="submit" class="btn btn-success float-right" value="Edit">
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
