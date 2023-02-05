@@ -26,7 +26,7 @@
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">First Name</h6>
-                                <input type="text" class="form-control" name="firstName" th:value="${contact.firstName}" minlength="1" maxlength="45" required>
+                                <input type="text" class="form-control" name="firstname" th:value="${contact.firstname}" minlength="1" maxlength="45" required>
 
                             </div>
                         </div>
@@ -34,20 +34,20 @@
                             <div class="form-group">
                                 <h6 class="text-primary">Last Name</h6>
 
-                                <input type="text" class="form-control" name="lastName" th:value="${contact.lastName}" minlength="1" maxlength="45" required>
+                                <input type="text" class="form-control" name="lastname" th:value="${contact.lastname}" minlength="1" maxlength="45" required>
 
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">Phone</h6>
-                                <input type="text" class="form-control" name="phoneNumber" th:value="${contact.phoneNumber}" minlength="1" maxlength="45" required>
+                                <input type="text" class="form-control" name="phonenumber" th:value="${contact.phonenumber}" minlength="1" maxlength="45" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary"> Mobile Phone</h6>
-                                <input type="text" class="form-control" name="mobilePhoneNumber" th:value="${contact.mobilePhoneNumber}" minlength="1" maxlength="45" required>
+                                <input type="text" class="form-control" name="mobilephone" th:value="${contact.mobilephone}" minlength="1" maxlength="45" required>
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">Company</h6>
-                                <input type="text" class="form-control" name="companyName" th:value="${contact.companyName}" minlength="1" maxlength="45" required>
+                                <input type="text" class="form-control" name="companyname" th:value="${contact.companyname}" minlength="1" maxlength="45" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
@@ -72,7 +72,7 @@
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">Fax</h6>
-                                <input type="text" class="form-control" name="faxNumber" th:value="${contact.faxNumber}" minlength="1" maxlength="45" required>
+                                <input type="text" class="form-control" name="faxnumber" th:value="${contact.faxnumber}" minlength="1" maxlength="45" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12 ">
@@ -86,13 +86,13 @@
                                     <h6 class="text-primary">Label</h6>
 
                                 <select class="custom-select" name="label">
-                                    <option value="WHITE" class="" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).WHITE}">white</option>
-                                    <option value="BLUE" class="bg-primary text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).BLUE}">blue</option>
-                                    <option value="RED" class="bg-danger text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).RED}">red</option>
-                                    <option value="YELLOW" class="bg-warning text-dark" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).YELLOW}">yellow</option>
-                                    <option value="GREEN" class="bg-success text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).GREEN}">green</option>
-                                    <option value="GREY" class="bg-secondary text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).GREY}">grey</option>
-                                    <option value="BLACK" class="bg-dark text-white" th:selected="${contact.label == T(nbu.java.model.pojo.Contact.Label).BLACK}">black</option>
+                                    <option value="WHITE" class="" th:selected="${contact.label == T(nbu.java.entity.Contact.Label).WHITE}">white</option>
+                                    <option value="BLUE" class="bg-primary text-white" th:selected="${contact.label == T(nbu.java.entity.Contact.Label).BLUE}">blue</option>
+                                    <option value="RED" class="bg-danger text-white" th:selected="${contact.label == T(nbu.java.entity.Contact.Label).RED}">red</option>
+                                    <option value="YELLOW" class="bg-warning text-dark" th:selected="${contact.label == T(nbu.java.entity.Contact.Label).YELLOW}">yellow</option>
+                                    <option value="GREEN" class="bg-success text-white" th:selected="${contact.label == T(nbu.java.entity.Contact.Label).GREEN}">green</option>
+                                    <option value="GREY" class="bg-secondary text-white" th:selected="${contact.label == T(nbu.java.entity.Contact.Label).GREY}">grey</option>
+                                    <option value="BLACK" class="bg-dark text-white" th:selected="${contact.label == T(nbu.java.entity.Contact.Label).BLACK}">black</option>
                                 </select>
                             </div>
                         </div>

@@ -1,14 +1,16 @@
 package nbu.java.controller;
 
-import nbu.java.model.dto.*;
-import nbu.java.model.pojo.User;
+import nbu.java.dto.EditRequestUserDTO;
+import nbu.java.dto.LoginUserDTO;
+import nbu.java.dto.RegisterRequestUserDTO;
+import nbu.java.dto.ResponseUserDTO;
+import nbu.java.entity.User;
 import nbu.java.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -91,8 +93,8 @@ public class UserController {
         ResponseUserDTO responseUserDTO = new ResponseUserDTO();
         responseUserDTO.setUsername(user.getUsername());
         responseUserDTO.setEmail(user.getEmail());
-        responseUserDTO.setFirstName(user.getFirstName());
-        responseUserDTO.setLastName(user.getLastName());
+        responseUserDTO.setFirstname(user.getFirstname());
+        responseUserDTO.setLastname(user.getLastname());
         model.addAttribute("responseUserDTO", responseUserDTO);
         return "myProfile";
     }

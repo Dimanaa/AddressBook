@@ -1,4 +1,4 @@
-package nbu.java.model.dto;
+package nbu.java.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +15,6 @@ public class EditRequestUserDTO {
     private String currentPassword;
     private String newPassword;
     private String confirmPassword;
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
 }

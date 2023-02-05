@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../bootstrap.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 
     <title>Address Book</title>
 
@@ -36,13 +36,13 @@
             <th:block th:each="contact : ${contacts}">
             <tr th:classappend="${contact.label}" th:onclick="|window.location.href='/contactPage?id=${contact.id}'|">
                 <th scope="row" th:text="${contactStat.index+1}">3</th>
-                <td th:text="${contact.firstName}">Peter</td>
-                <td th:text="${contact.lastName}">Petrov</td>
-                <td class="d-none d-lg-table-cell" th:text="${contact.companyName}">Microsoft</td>
-                <td class="d-none d-md-table-cell" th:text="${contact.phoneNumber}">028742135</td>
-                <td class="d-none d-sm-table-cell" th:text="${contact.email}">peter@mail.bg</td>
-                <td th:text="${contact.mobilePhoneNumber}">0877794849</td>
-                <td class="d-none d-md-table-cell" th:text="${contact.comment}">Comment</td>
+                <td th:text="${contact.firstname}"></td>
+                <td th:text="${contact.lastname}"></td>
+                <td class="d-none d-lg-table-cell" th:text="${contact.companyname}"></td>
+                <td class="d-none d-md-table-cell" th:text="${contact.phonenumber}"></td>
+                <td class="d-none d-sm-table-cell" th:text="${contact.email}"></td>
+                <td th:text="${contact.mobilephone}"></td>
+                <td class="d-none d-md-table-cell" th:text="${contact.comment}"></td>
             </tr>
             </th:block>
 
@@ -64,7 +64,7 @@
             integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
             crossorigin="anonymous"></script>
 
-
+</div>
 </body>
 
 </html>

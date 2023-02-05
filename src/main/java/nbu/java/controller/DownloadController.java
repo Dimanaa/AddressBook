@@ -1,6 +1,6 @@
 package nbu.java.controller;
 
-import nbu.java.model.pojo.User;
+import nbu.java.entity.User;
 import nbu.java.services.DownloadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

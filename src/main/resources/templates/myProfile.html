@@ -16,7 +16,6 @@
 
     <header th:insert="navigation :: header"></header>
 
-    <!--/*@thymesVar id="responseUserDTO" type="nbu.java.model.dto.ResponseUserDTO"*/-->
     <div class="container myProfile-page-div shadow-lg"  th:action="@{/myProfile.html}" th:object="${responseUserDTO}">
         <h1 class="text-center">My Profile</h1>
             <div class="card-body">
@@ -43,7 +42,7 @@
                   <h6>First Name</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    <p th:text="*{firstName}"/>
+                    <p th:text="*{firstname}"/>
                 </div>
               </div>
               <hr>
@@ -52,7 +51,7 @@
                   <h6>Last Name</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    <p th:text="*{lastName}" />
+                    <p th:text="*{lastname}" />
                 </div>
               </div>
               <hr>

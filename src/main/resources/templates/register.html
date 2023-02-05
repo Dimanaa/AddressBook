@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
     <title>Address Book</title>
@@ -18,7 +18,6 @@
 
     <div class="container registration-page-div rounded shadow-lg bg-white">
         <h1 class="text-center">Registration</h1>
-        <!--/*@thymesVar id="registerRequestUserDTO" type="nbu.java.model.dto.RegisterRequestUserDTO"*/-->
         <form action="#"  th:action="@{/register}" th:object="${registerRequestUserDTO}" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -39,16 +38,12 @@
 
             <div class="form-group">
                 <label for="firstName">First name</label>
-                <input type="text" class="form-control" th:field="*{firstName}" name="firstName" id="firstName">
+                <input type="text" class="form-control" th:field="*{firstname}" name="firstName" id="firstName">
             </div>
 
             <div class="form-group">
                 <label for="lastName">Last name</label>
-                <input type="text" class="form-control" th:field="*{lastName}" name="lastName" id="lastName">
-            </div>
-
-            <div>
-                <p th:if="${#fields.hasErrors('global')}" th:errorclass="error" th:errors="*{global}" />
+                <input type="text" class="form-control" th:field="*{lastname}" name="lastName" id="lastName">
             </div>
 
             <button type="submit" class="btn btn-primary btn-block" id="registrationButton"> Register </button>

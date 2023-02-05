@@ -1,7 +1,10 @@
 package nbu.java.services;
 
-import nbu.java.model.dto.*;
-import nbu.java.model.pojo.User;
+import nbu.java.dto.EditRequestUserDTO;
+import nbu.java.dto.LoginUserDTO;
+import nbu.java.dto.RegisterRequestUserDTO;
+import nbu.java.dto.ResponseUserDTO;
+import nbu.java.entity.User;
 import nbu.java.repositories.UserRepository;
 import nbu.java.utils.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,17 +65,17 @@ public class UserService {
         String encodedPassword = encoder.encode(initialPassword);
         userDTO.setPassword(encodedPassword);
 
-        String firstName = userDTO.getFirstName();
-        String validateFirstNameMessage = Validator.validateName(firstName);
-        if (!validateFirstNameMessage.isEmpty()) {
-            ObjectError error = new ObjectError("global", validateFirstNameMessage);
+        String firstname = userDTO.getFirstname();
+        String validateFirstnameMessage = Validator.validatename(firstname);
+        if (!validateFirstnameMessage.isEmpty()) {
+            ObjectError error = new ObjectError("global", validateFirstnameMessage);
             bindingResult.addError(error);
         }
 
-        String lastName = userDTO.getLastName();
-        String validateLastNameMessage = Validator.validateName(lastName);
-        if (!validateLastNameMessage.isEmpty()) {
-            ObjectError error = new ObjectError("global", validateLastNameMessage);
+        String lastname = userDTO.getLastname();
+        String validateLastnameMessage = Validator.validatename(lastname);
+        if (!validateLastnameMessage.isEmpty()) {
+            ObjectError error = new ObjectError("global", validateLastnameMessage);
             bindingResult.addError(error);
         }
 
@@ -147,22 +150,22 @@ public class UserService {
             bindingResult.addError(error);
         }
 
-        String newFirstName = userDTO.getFirstName();
-        String validateFirstNameMessage = Validator.validateName(newFirstName);
-        if (!validateFirstNameMessage.isEmpty()) {
-            ObjectError error = new ObjectError("global", validateFirstNameMessage);
+        String newFirstname = userDTO.getFirstname();
+        String validateFirstnameMessage = Validator.validatename(newFirstname);
+        if (!validateFirstnameMessage.isEmpty()) {
+            ObjectError error = new ObjectError("global", validateFirstnameMessage);
             bindingResult.addError(error);
         } else {
-            loggedUser.setFirstName(newFirstName);
+            loggedUser.setFirstname(newFirstname);
         }
 
-        String newLastName = userDTO.getLastName();
-        String validateLastNameMessage = Validator.validateName(newLastName);
-        if (!validateLastNameMessage.isEmpty()) {
-            ObjectError error = new ObjectError("global", validateLastNameMessage);
+        String newLastname = userDTO.getLastname();
+        String validateLastnameMessage = Validator.validatename(newLastname);
+        if (!validateLastnameMessage.isEmpty()) {
+            ObjectError error = new ObjectError("global", validateLastnameMessage);
             bindingResult.addError(error);
         } else {
-            loggedUser.setLastName(newLastName);
+            loggedUser.setLastname(newLastname);
         }
 
         loggedUser = userRepository.save(loggedUser);

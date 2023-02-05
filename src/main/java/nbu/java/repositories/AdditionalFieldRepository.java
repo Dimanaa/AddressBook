@@ -1,6 +1,6 @@
 package nbu.java.repositories;
 
-import nbu.java.model.pojo.AdditionalField;
+import nbu.java.entity.AdditionalField;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

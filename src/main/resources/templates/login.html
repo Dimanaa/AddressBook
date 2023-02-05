@@ -9,7 +9,6 @@
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
-
     <title>Address Book</title>
 
 </head>
@@ -28,10 +27,6 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" th:field="*{password}" id="password" />
-            </div>
-
-            <div>
-                <p th:if="${#fields.hasErrors('global')}" th:errorclass="error" th:errors="*{global}" />
             </div>
 
             <button type="submit" class="btn btn-primary btn-block" id="signInButton">Login</button>

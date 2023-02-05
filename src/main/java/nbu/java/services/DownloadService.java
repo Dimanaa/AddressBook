@@ -2,7 +2,7 @@ package nbu.java.services;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import nbu.java.model.pojo.Contact;
+import nbu.java.entity.Contact;
 import nbu.java.repositories.ContactRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
@@ -50,9 +50,9 @@ public class DownloadService {
             FileWriter writer = new FileWriter(temp);
             CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT);
             for (Contact contact : contacts) {
-                csvPrinter.printRecord(contact.getFirstName(), contact.getLastName(), contact.getCompanyName(),
-                        contact.getAddress(), contact.getPhoneNumber(), contact.getEmail(), contact.getFaxNumber(),
-                        contact.getMobilePhoneNumber(),contact.getComment());
+                csvPrinter.printRecord(contact.getFirstname(), contact.getLastname(), contact.getCompanyname(),
+                        contact.getAddress(), contact.getPhonenumber(), contact.getEmail(), contact.getFaxnumber(),
+                        contact.getMobilephone(),contact.getComment());
             }
 
             writer.close();
@@ -104,28 +104,28 @@ public class DownloadService {
 
     private void createRow(Contact contact, Row row) {
         Cell cell = row.createCell(0);
-        cell.setCellValue(contact.getFirstName());
+        cell.setCellValue(contact.getFirstname());
 
         cell = row.createCell(1);
-        cell.setCellValue(contact.getLastName());
+        cell.setCellValue(contact.getLastname());
 
         cell = row.createCell(2);
-        cell.setCellValue(contact.getCompanyName());
+        cell.setCellValue(contact.getCompanyname());
 
         cell = row.createCell(3);
         cell.setCellValue(contact.getAddress());
 
         cell = row.createCell(4);
-        cell.setCellValue(contact.getPhoneNumber());
+        cell.setCellValue(contact.getPhonenumber());
 
         cell = row.createCell(5);
         cell.setCellValue(contact.getEmail());
 
         cell = row.createCell(6);
-        cell.setCellValue(contact.getFaxNumber());
+        cell.setCellValue(contact.getFaxnumber());
 
         cell = row.createCell(7);
-        cell.setCellValue(contact.getMobilePhoneNumber());
+        cell.setCellValue(contact.getMobilephone());
 
         cell = row.createCell(8);
         cell.setCellValue(contact.getComment());

@@ -1,10 +1,10 @@
-package nbu.java.model.dto;
+package nbu.java.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import nbu.java.model.pojo.AdditionalField;
-import nbu.java.model.pojo.Contact;
-import nbu.java.model.pojo.User;
+import nbu.java.entity.AdditionalField;
+import nbu.java.entity.Contact;
+import nbu.java.entity.User;
 import java.util.List;
 
 @Getter
@@ -12,14 +12,14 @@ import java.util.List;
 public class ContactDTO {
 
     private int id;
-    private String firstName;
-    private String lastName;
-    private String companyName;
+    private String firstname;
+    private String lastname;
+    private String companyname;
     private String address;
-    private String phoneNumber;
+    private String phonenumber;
     private String email;
-    private String faxNumber;
-    private String mobilePhoneNumber;
+    private String faxnumber;
+    private String mobilephone;
     private String comment;
 
     private Contact.Label label;

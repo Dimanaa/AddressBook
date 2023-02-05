@@ -16,7 +16,7 @@
     <header th:insert="navigation :: header"></header>
 
     <div class="container contact-page-div shadow-lg">
-        <h1 class="text-center" th:text="${contact.firstName + ' ' + contact.lastName}">Peter Petrov</h1>
+        <h1 class="text-center" th:text="${contact.firstname + ' ' + contact.lastname}"></h1>
         <div class="col-md-12 col-sm-12 col-12">
             <div class="card h-100">
                 <div class="card-body">
@@ -26,58 +26,58 @@
                             <div class="form-group">
                                 <h6 class="text-primary">First Name</h6>
 
-                                <h6 th:text="${contact.firstName}">Peter</h6>
+                                <h6 th:text="${contact.firstname}"></h6>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">Last Name</h6>
 
-                                <h6 th:text="${contact.lastName}">Petrov</h6>
+                                <h6 th:text="${contact.lastname}"></h6>
 
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">Phone</h6>
-                                <h6 th:text="${contact.phoneNumber}">02873416</h6>
+                                <h6 th:text="${contact.phonenumber}"></h6>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
-                                <h6 class="text-primary"> Mobile Phone</h6>
-                                <h6 th:text="${contact.mobilePhoneNumber}">0882917831</h6>
+                                <h6 class="text-primary"> mobilephone</h6>
+                                <h6 th:text="${contact.mobilephone}"></h6>
                             </div>
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">Address</h6>
-                                <h6 th:text="${contact.address}">Sofia</h6>
+                                <h6 th:text="${contact.address}"></h6>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">Company</h6>
-                                <h6 th:text="${contact.companyName}">Twitter</h6>
+                                <h6 th:text="${contact.companyname}"></h6>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">Email</h6>
-                                <h6 th:text="${contact.email}">petrov@mail.bg</h6>
+                                <h6 th:text="${contact.email}">p</h6>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <h6 class="text-primary">Fax</h6>
-                                <h6 th:text="${contact.faxNumber}">02873416</h6>
+                                <h6 th:text="${contact.faxnumber}"></h6>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12 ">
                             <div class="form-group">
                                 <h6 class="text-primary">Comment</h6>
-                                <h6 th:text="${contact.comment}">Friend</h6>
+                                <h6 th:text="${contact.comment}"></h6>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
@@ -85,7 +85,7 @@
                                 <h6 class="text-primary">Label</h6>
                                 <div class="container color-label">
                                     <span class="badge" th:classappend="${contact.label}">
-                                        <h6 th:text="${contact.label}">Yellow</h6>
+                                        <h6 th:text="${contact.label}"></h6>
                                     </span>
                                 </div>
                             </div>

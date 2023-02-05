@@ -1,9 +1,9 @@
 package nbu.java.services;
 
 import nbu.java.exceptions.NotFoundException;
-import nbu.java.model.dto.AdditionalFieldDTO;
+import nbu.java.dto.AdditionalFieldDTO;
 import nbu.java.repositories.AdditionalFieldRepository;
-import nbu.java.model.pojo.AdditionalField;
+import nbu.java.entity.AdditionalField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,20 +24,20 @@ public class AdditionalFieldService {
 
         if (additionalField == null){}
 
-        if(additionalField.getTitle() == null || additionalField.getTitle().length() > 45){ }
+        if(additionalField.getTitle() == null){}
 
-        if(additionalField.getText() == null || additionalField.getText().length() > 255){}
+        if(additionalField.getText() == null){}
 
         additionalFieldRepository.save(additionalField);
     }
 
     @Transactional
-    public List<AdditionalField> findByContactId(int id) { return (List<AdditionalField>) additionalFieldRepository.findByContactId(id); }
+    public List<AdditionalField> findByContactId(int id) { return additionalFieldRepository.findByContactId(id); }
 
     @Transactional
     public AdditionalField findById(int id) throws NotFoundException {
         AdditionalField additionalField = additionalFieldRepository.findById(id);
-        if (additionalField == null) throw new NotFoundException("This additional field doesn't exits!");
+        if (additionalField == null) throw new NotFoundException("This additional field doesn't exits.");
         return additionalField;
     }
 

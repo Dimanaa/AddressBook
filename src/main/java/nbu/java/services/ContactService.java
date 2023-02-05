@@ -2,17 +2,13 @@ package nbu.java.services;
 
 import nbu.java.exceptions.BadRequestException;
 import nbu.java.exceptions.NotFoundException;
-import nbu.java.model.dto.ContactDTO;
-import nbu.java.model.pojo.User;
+import nbu.java.dto.ContactDTO;
 import nbu.java.repositories.ContactRepository;
-import nbu.java.model.pojo.Contact;
+import nbu.java.entity.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -35,7 +31,7 @@ public class ContactService {
     @Transactional
     public Contact findById(int id) throws NotFoundException {
         Contact contact = contactRepository.findById(id);
-        if (contact == null) throw new NotFoundException("This contact doesn't exits!");
+        if (contact == null) throw new NotFoundException("This contact doesn't exits.");
         return contact;
     }
 
@@ -46,53 +42,47 @@ public class ContactService {
     }
 
     @Transactional
-    public List<Contact> findByFirstNameAndLastNameAndUserId(String firstName, String lastName, int id) {
+    public List<Contact> findByFirstnameAndLastnameAndUserId(String firstname, String lastname, int id) {
 
-        return contactRepository.findByFirstNameAndLastNameAndUserId(firstName, lastName, id);
+        return contactRepository.findByFirstnameAndLastnameAndUserId(firstname, lastname, id);
     }
 
     @Transactional
-    public List<Contact> findBySameFirstNameAndDistinctLastName(int id) {
+    public List<Contact> findBySameFirstnameAndDistinctLastname(int id) {
 
-        return contactRepository.findBySameFirstNameAndDistinctLastName(id);
+        return contactRepository.findBySameFirstnameAndDistinctLastname(id);
     }
 
     @Transactional
-    public List<Contact> findBySameLastNameAndDistinctFirstName(int id) {
+    public List<Contact> findBySameLastnameAndDistinctFirstname(int id) {
 
-        return contactRepository.findBySameLastNameAndDistinctFirstName(id);
+        return contactRepository.findBySameLastnameAndDistinctFirstname(id);
     }
 
     @Transactional
     public void addContact(Contact contact) throws BadRequestException {
 
         if (contact == null) {
-            throw new BadRequestException("The value of the object is null!");
+            throw new BadRequestException("The value of the object is null.");
         }
 
-        validate(contact.getFirstName(), 45);
+        validate(contact.getFirstname());
 
-        validate(contact.getLastName(), 45);
+        validate(contact.getLastname());
 
-        validate(contact.getCompanyName(), 45);
+        validate(contact.getCompanyname());
 
-        validate(contact.getAddress(), 125);
+        validate(contact.getAddress());
 
-        validate(contact.getPhoneNumber(), 45);
+        validate(contact.getPhonenumber());
 
-        validate(contact.getEmail(), 45);
+        validate(contact.getEmail());
 
-        validate(contact.getFaxNumber(), 45);
+        validate(contact.getFaxnumber());
 
-        validate(contact.getMobilePhoneNumber(), 45);
+        validate(contact.getMobilephone());
 
-        if (contact.getComment().length() > 255) {
-        }
-
-        if (contact.getLabel().name().length() > 45) {
-        }
-
-//        if (contact.getUser() == null){}
+       if (contact.getUser() == null){}
         contactRepository.save(contact);
 
     }
@@ -107,44 +97,40 @@ public class ContactService {
 
         Contact contact = contactRepository.findById(id);
 
-        if (contactDTO.getFirstName() != null && contactDTO.getFirstName().length() <= 45) {
-            contact.setFirstName(contactDTO.getFirstName());
+        if (contactDTO.getFirstname() != null) {
+            contact.setFirstname(contactDTO.getFirstname());
         }
 
-        if (contactDTO.getLastName() != null && contactDTO.getLastName().length() <= 45) {
-            contact.setLastName(contactDTO.getLastName());
+        if (contactDTO.getLastname() != null) {
+            contact.setLastname(contactDTO.getLastname());
         }
 
-        if (contactDTO.getCompanyName() != null && contactDTO.getCompanyName().length() <= 45) {
-            contact.setCompanyName(contactDTO.getCompanyName());
+        if (contactDTO.getCompanyname() != null) {
+            contact.setCompanyname(contactDTO.getCompanyname());
         }
 
-        if (contactDTO.getAddress() != null && contactDTO.getCompanyName().length() <= 125) {
+        if (contactDTO.getAddress() != null) {
             contact.setAddress(contactDTO.getAddress());
         }
 
-        if (contactDTO.getPhoneNumber() != null && contactDTO.getCompanyName().length() <= 45) {
-            contact.setPhoneNumber(contactDTO.getPhoneNumber());
+        if (contactDTO.getPhonenumber() != null) {
+            contact.setPhonenumber(contactDTO.getPhonenumber());
         }
 
-        if (contactDTO.getEmail() != null && contactDTO.getEmail().length() <= 45) {
+        if (contactDTO.getEmail() != null) {
             contact.setEmail(contactDTO.getEmail());
         }
 
-        if (contactDTO.getFaxNumber() != null && contactDTO.getFaxNumber().length() <= 45) {
-            contact.setFaxNumber(contactDTO.getFaxNumber());
+        if (contactDTO.getFaxnumber() != null) {
+            contact.setFaxnumber(contactDTO.getFaxnumber());
         }
 
-        if (contactDTO.getMobilePhoneNumber() != null && contactDTO.getMobilePhoneNumber().length() <= 45) {
-            contact.setMobilePhoneNumber(contactDTO.getMobilePhoneNumber());
+        if (contactDTO.getMobilephone() != null) {
+            contact.setMobilephone(contactDTO.getMobilephone());
         }
 
-        if (contactDTO.getComment() != null && contactDTO.getComment().length() <= 255) {
+        if (contactDTO.getComment() != null) {
             contact.setComment(contactDTO.getComment());
-        }
-
-        if (contactDTO.getLabel() != null && contactDTO.getMobilePhoneNumber().length() <= 45) {
-            contact.setLabel(contactDTO.getLabel());
         }
 
         if (contactDTO.getUser() != null) {
@@ -154,12 +140,9 @@ public class ContactService {
         contactRepository.save(contact);
     }
 
-    private void validate(String value, int n) throws BadRequestException {
+   private void validate(String value) throws BadRequestException {
         if (value == null) {
-            throw new BadRequestException("The value of the object is null!");
-        }
-        if (value.length() > n) {
-            throw new BadRequestException("The length of the object is more than " + n + "!");
+            throw new BadRequestException("The value of the object is null.");
         }
     }
 

@@ -18,7 +18,6 @@
 
     <div class="container editMyProfile-page-div shadow-lg bg-white">
         <h1 class="text-center">Edit My Profile</h1>
-      <!--/*@thymesVar id="editRequestUserDTO" type="nbu.java.model.dto.EditRequestUserDTO"*/-->
       <form action="#"  th:action="@{/editMyProfile}" th:object="${editRequestUserDTO}" method="post">
           <div class="form-group">
               <label for="username">Username</label>
@@ -43,20 +42,6 @@
           <div class="form-group">
               <label for="confirmPassword">Confirm Password</label>
               <input type="password" class="form-control" th:field="*{confirmPassword}" name="confirmPassword" id="confirmPassword">
-          </div>
-
-          <div class="form-group">
-              <label for="firstName">First name</label>
-              <input type="text" class="form-control" th:field="*{firstName}" name="firstName" id="firstName">
-          </div>
-
-          <div class="form-group">
-              <label for="lastName">Last name</label>
-              <input type="text" class="form-control" th:field="*{lastName}" name="lastName" id="lastName">
-          </div>
-
-          <div>
-              <p th:if="${#fields.hasErrors('global')}" th:errorclass="error" th:errors="*{global}" />
           </div>
 
           <button type="submit" class="btn btn-primary btn-block" id="editButton"> Save </button>

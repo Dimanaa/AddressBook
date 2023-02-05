@@ -1,4 +1,4 @@
-package nbu.java.model.pojo;
+package nbu.java.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "additional_fields")
+@Table(name = "additionalfield")
 public class AdditionalField {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

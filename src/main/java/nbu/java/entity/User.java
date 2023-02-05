@@ -1,9 +1,9 @@
-package nbu.java.model.pojo;
+package nbu.java.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import nbu.java.model.dto.RegisterRequestUserDTO;
+import nbu.java.dto.RegisterRequestUserDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,13 +12,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String username;
     private String email;
     private String password;
@@ -27,8 +27,8 @@ public class User {
     private List<Contact> contacts;
 
     public User(RegisterRequestUserDTO userDTO) {
-        this.firstName = userDTO.getFirstName();
-        this.lastName = userDTO.getLastName();
+        this.firstname = userDTO.getFirstname();
+        this.lastname = userDTO.getLastname();
         this.username = userDTO.getUsername();
         this.email = userDTO.getEmail();
         this.password = userDTO.getPassword();

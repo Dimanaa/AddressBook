@@ -1,6 +1,5 @@
-package nbu.java.model.pojo;
+package nbu.java.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "contacts")
+@Table(name = "contact")
 public class Contact {
 
     @Id
@@ -22,21 +21,21 @@ public class Contact {
     private int id;
 
     @Expose
-    private String firstName;
+    private String firstname;
     @Expose
-    private String lastName;
+    private String lastname;
     @Expose
-    private String companyName;
+    private String companyname;
     @Expose
     private String address;
     @Expose
-    private String phoneNumber;
+    private String phonenumber;
     @Expose
     private String email;
     @Expose
-    private String faxNumber;
+    private String faxnumber;
     @Expose
-    private String mobilePhoneNumber;
+    private String mobilephone;
     @Expose
     private String comment;
 
@@ -51,6 +50,6 @@ public class Contact {
     private User user;
 
     public enum Label {
-        WHITE, GREEN, RED, YELLOW, BLUE, GREY, BLACK
+        WHITE, YELLOW, GREEN, RED, BLUE, GREY, BLACK
     }
 }

@@ -2,10 +2,10 @@ package nbu.java.controller;
 
 import nbu.java.exceptions.BadRequestException;
 import nbu.java.exceptions.NotFoundException;
-import nbu.java.model.pojo.AdditionalField;
-import nbu.java.model.pojo.Contact;
-import nbu.java.model.dto.AdditionalFieldDTO;
-import nbu.java.model.dto.ContactDTO;
+import nbu.java.entity.AdditionalField;
+import nbu.java.entity.Contact;
+import nbu.java.dto.AdditionalFieldDTO;
+import nbu.java.dto.ContactDTO;
 import nbu.java.services.AdditionalFieldService;
 import nbu.java.services.ContactService;
 import nbu.java.services.UserService;
@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 
 import javax.servlet.http.HttpSession;
 
@@ -76,12 +75,12 @@ public class ContactController {
         if (httpSession.getAttribute("LOGGED_USER_ID") == null) return "redirect:/login";
         List<Contact> contacts = contactService.findByUserId((Integer) httpSession.getAttribute("LOGGED_USER_ID")).
                 stream().
-                sorted(Comparator.comparing(Contact::getFirstName).
-                        thenComparing(Contact::getLastName)).
+                sorted(Comparator.comparing(Contact::getFirstname).
+                        thenComparing(Contact::getLastname)).
                 collect(Collectors.toList());
 
         model.addAttribute("contacts", contacts);
-        return "contacts";
+        return "allContacts";
     }
 
     @GetMapping("/contactPage")
@@ -104,7 +103,7 @@ public class ContactController {
             return "redirect:/contacts";
         model.addAttribute("contact", contact);
         model.addAttribute("additionalFields", additionalFieldService.findByContactId(Integer.parseInt(id)));
-        return "editContactPage";
+        return "editContact";
     }
 
     @PostMapping("contacts/edit")
@@ -156,22 +155,22 @@ public class ContactController {
 
     @PostMapping("/contacts/search")
     public String search(@RequestParam(value = "radio", required = false) String choice,
-                         @RequestParam(value = "firstName", required = false) String firstName,
-                         @RequestParam(value = "lastName", required = false) String lastName,
+                         @RequestParam(value = "firstname", required = false) String firstname,
+                         @RequestParam(value = "lastname", required = false) String lastname,
                          Model model, HttpSession httpSession) {
 
         if (choice == null) return "search";
 
         if (choice.equals("allRecords")) {
             model.addAttribute("contacts", contactService.findByUserId((Integer) httpSession.getAttribute("LOGGED_USER_ID")));
-        } else if (choice.equals("searchByFirstAndLastName")) {
-            model.addAttribute("contacts", contactService.findByFirstNameAndLastNameAndUserId(firstName, lastName,(Integer) httpSession.getAttribute("LOGGED_USER_ID")));
+        } else if (choice.equals("searchByFirstAndLastname")) {
+            model.addAttribute("contacts", contactService.findByFirstnameAndLastnameAndUserId(firstname, lastname,(Integer) httpSession.getAttribute("LOGGED_USER_ID")));
         } else if (choice.equals("mostCommonLabels")) {
             model.addAttribute("contacts", contactService.getContactsWithMostCommonLabels((Integer) httpSession.getAttribute("LOGGED_USER_ID")));
-        } else if (choice.equals("sameFirstNames")) {
-            model.addAttribute("contacts", contactService.findBySameFirstNameAndDistinctLastName((Integer) httpSession.getAttribute("LOGGED_USER_ID")));
-        } else if (choice.equals("sameLastNames")) {
-            model.addAttribute("contacts", contactService.findBySameLastNameAndDistinctFirstName((Integer) httpSession.getAttribute("LOGGED_USER_ID")));
+        } else if (choice.equals("sameFirstnames")) {
+            model.addAttribute("contacts", contactService.findBySameFirstnameAndDistinctLastname((Integer) httpSession.getAttribute("LOGGED_USER_ID")));
+        } else if (choice.equals("sameLastnames")) {
+            model.addAttribute("contacts", contactService.findBySameLastnameAndDistinctFirstname((Integer) httpSession.getAttribute("LOGGED_USER_ID")));
         }
 
         return "search";
